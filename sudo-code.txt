@@ -1,0 +1,82 @@
+Task 1
+--------------------------------------------------------------------------
+
+
+dataframe:
+
+Word   | Order  | isPunc?
+-------------------------
+string |  int   | Bool
+
+
+libraries needed:
+pandas
+numpy (depending on data entry method)
+
+read in data
+pd.read_csv(path) - will change depending on initial data format
+
+Organise data into pandas dataframe, then utalise library functions.
+
+Sort dataframe by "Order" column.
+data.sort_values()
+
+create empty string to store text
+stringstore = ""
+
+loop through each word and reconstruct the source text.
+for word in dataframe["word"]
+
+Include if statement to check for punctuation.
+if punc == True => check what kind of punctuation
+if punc == True & puncType == ending (. ? ! , etc) then word = word + " "
+else if punc == True & puncType == joining (hyphon) then word = word
+stringstore += word
+
+if we have punc == false (an actuall word)
+if sentenceEnd == True => capitalise first character then word => word
+else word = " " + word
+stringstore += word
+
+repeat until sentence is reconstructed
+
+
+
+Task 2
+--------------------------------------------------------------------------
+
+This would be a function
+
+input: source text, word (strings)
+
+convert source text to lower case
+
+Use re.finditer() to find duplicated words
+
+Loop through indicies returned by re.finditer()
+if the end index+1 is a punctuation, return that index as the end index.
+
+use np.arange(startIndex, endIndex,1) to create a list of the indicies.
+
+
+
+Task 3
+--------------------------------------------------------------------------
+
+Similar function to task 2, with the update:
+
+Call FindWord() to obtain indices of the word we are looking for.
+
+Check to see if word is included in any of the bigrams.
+
+If it is, call FindWord on the bigram to get its indices.
+Then check its indices against the words indices, if any of them match 
+we know if is part of the bigram
+
+update the word indices list to account for the bigram.
+
+
+
+
+
+
